@@ -20,19 +20,16 @@
     <h3>Demonstration of using methods</h3>
 
     <!-- Conditionally display content based on the 'myName' variable. -->
-    <p>
-        @if (string.IsNullOrWhiteSpace(myName))
-        {
-            <!-- Display a message when 'myName' is empty or null, indicating that the random number is odd. -->
+    @if (string.IsNullOrWhiteSpace(myName))
+    {
+        <!-- Display a message when 'myName' is empty or null, indicating that the random number is odd. -->
         <p>The random number is odd {@oddEvenValue}</p>
-        }
-        else
-        {
+    }
+    else
+    {
         <!-- Display the value of 'myName' when it's not empty. -->
         <p>@myName</p>
-        }
-    </p>
-
+    }
     <!-- This is a button that triggers the 'RandomValue' method when clicked. -->
     <button class="btn-success" @onclick="RandomValue">
         Random Value
@@ -89,7 +86,7 @@
         <!-- Label for the checkbox indicating agreement to terms -->
         <label>
             <!-- Checkbox input bound to the acceptanceBox variable -->
-            <input type="checkbox" value="true" @bind="acceptanceBox" />
+            <input type="checkbox" @bind="acceptanceBox" />
             <!-- Label text indicating the agreement -->
             &nbsp; I agree to terms
         </label>
