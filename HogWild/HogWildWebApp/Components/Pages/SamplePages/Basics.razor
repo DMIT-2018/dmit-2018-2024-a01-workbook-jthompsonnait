@@ -1,9 +1,114 @@
 ﻿<!-- Razor component for the page accessible at "/SamplePages/Basics" -->
 @page "/SamplePages/Basics"
-@rendermode InteractiveServer
+
 
 <!-- PageTitle component to set the page title -->
 <PageTitle>Review page basics</PageTitle>
 
 <!-- Main heading of the page -->
 <h1>Introduction to Blazor Page (Review)</h1>
+
+@{
+    // Blazor components combine C# and HTML code in a single file
+    // The '@' symbol is used to switch between the HTML and C# environments
+    // When using '@', you're in the C# environment, allowing for C# code execution
+    // Without '@', you're in the HTML environment, where you write standard HTML
+}
+
+<!-- This is a header indicating a demonstration of using methods. -->
+<div>
+    <h3>Demonstration of using methods</h3>
+
+    <!-- Conditionally display content based on the 'myName' variable. -->
+    <p>
+        @if (string.IsNullOrWhiteSpace(myName))
+        {
+            <!-- Display a message when 'myName' is empty or null, indicating that the random number is odd. -->
+        <p>The random number is odd {@oddEvenValue}</p>
+        }
+        else
+        {
+        <!-- Display the value of 'myName' when it's not empty. -->
+        <p>@myName</p>
+        }
+    </p>
+
+    <!-- This is a button that triggers the 'RandomValue' method when clicked. -->
+    <button class="btn-success" @onclick="RandomValue">
+        Random Value
+    </button>
+</div>
+
+<section class="setflex">
+    <div class="onethird">
+        <!-- Heading for this section -->
+        <h3>TextBoxes</h3>
+        <!-- Label and input for entering an email -->
+        <label>
+            Enter an Email
+            <input type="email" @bind="emailText"
+                   placeholder="enter email" />
+        </label>
+        <br />
+        <!-- Label and input for entering a password -->
+        <label>
+            Enter a Password
+            <input type="password" @bind="passwordText"
+                   placeholder="enter password" />
+        </label>
+        <br />
+        <!-- Label and input for entering a date -->
+        <label>
+            Enter a Date
+            <input type="date" @bind="dateText" />
+        </label>
+        <br />
+        <!-- Button to trigger the TextSubmit method -->
+        <button class="btn-success" @onclick="TextSubmit">
+            Text Submit
+        </button>
+    </div>
+
+    <div class=onethird>
+        <!-- Individual Radio Buttons -->
+        <h3>Radiobuttons CheckBox TextArea</h3>
+        <br />
+        <!-- Radio Buttons using Collections -->
+        <label>
+            Select your favorite meal using a foreach loop<br />
+        </label>
+        <br />
+        @foreach (var item in @meals)
+        {
+            @*  Loop through the meals list and create radio buttons for each meal option *@
+            <input type="radio" name="meal" value="@item" @onchange="HandleMealSelection" checked="@(item == meal)" /> @item
+            <br />  <!-- Line break to separate radio buttons -->
+        }
+
+        <br />
+        <!-- Label for the checkbox indicating agreement to terms -->
+        <label>
+            <!-- Checkbox input bound to the acceptanceBox variable -->
+            <input type="checkbox" value="true" @bind="acceptanceBox" />
+            <!-- Label text indicating the agreement -->
+            &nbsp; I agree to terms
+        </label>
+
+        <br />
+        <br />
+        <!-- Textarea input element -->
+        <textarea rows="5" cols="50" placeholder="enter message"
+                  @bind="messageBody"></textarea><!-- Data binding to the 'messageBody' C# variable -->
+
+        <br />
+        <br />
+        <!-- Button element for submitting the RadioCheckAreaSubmit method when clicked -->
+        <button class="btn-success" @onclick="RadioCheckAreaSubmit">
+            Radio/Check/Area Submit
+        </button>
+    </div>
+</section>
+
+<div>
+    <h2>@feedback</h2>
+</div>
