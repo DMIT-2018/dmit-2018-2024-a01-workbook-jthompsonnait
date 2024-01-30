@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace HogWIldSystem.Entities;
 
 [Table("Category")]
-public partial class Category
+internal partial class Category
 {
     [Key]
     public int CategoryID { get; set; }

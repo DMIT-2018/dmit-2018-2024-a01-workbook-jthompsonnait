@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HogWIldSystem.Entities;
 
-public partial class WorkingVersion
+internal partial class WorkingVersion
 {
     [Key]
     public int VersionId { get; set; }
