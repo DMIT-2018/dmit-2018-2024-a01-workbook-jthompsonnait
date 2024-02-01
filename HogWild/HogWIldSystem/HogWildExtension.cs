@@ -1,5 +1,5 @@
-﻿using HogWIldSystem.BLL;
-using HogWIldSystem.DAL;
+﻿using HogWildSystem.BLL;
+using HogWildSystem.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 

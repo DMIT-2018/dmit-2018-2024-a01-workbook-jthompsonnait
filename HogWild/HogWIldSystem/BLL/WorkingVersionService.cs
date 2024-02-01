@@ -1,14 +1,8 @@
 ﻿#nullable disable
 using HogWildSystem.ViewModels;
-using HogWIldSystem.DAL;
-using HogWIldSystem.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using HogWildSystem.DAL;
 
-namespace HogWIldSystem.BLL
+namespace HogWildSystem.BLL
 {
     public class WorkingVersionService
     {

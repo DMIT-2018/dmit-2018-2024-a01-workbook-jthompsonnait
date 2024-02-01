@@ -1,0 +1,64 @@
+﻿@page "/SamplePages/QueryResult"
+
+<h3>Q1 Result</h3>
+
+<!-- Replace with student names and problem name -->
+<p>Created by: [Bob Smith] - Problem: [Q1]</p>
+
+<!-- Button to execute the query -->
+<button @onclick="LoadData">Execute Query</button>
+
+@if (dataLoaded)
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Column1</th>
+            <th>Column2</th>
+            <th>Column3</th>
+            <th>Column4</th>
+            <th>Column5</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Sample row 1 -->
+        <tr>
+            <td>Data1.1</td>
+            <td>Data1.2</td>
+            <td>Data1.3</td>
+            <td>Data1.4</td>
+            <td>Data1.5</td>
+        </tr>
+        <!-- Sample row 2 -->
+        <tr>
+            <td>Data2.1</td>
+            <td>Data2.2</td>
+            <td>Data2.3</td>
+            <td>Data2.4</td>
+            <td>Data2.5</td>
+        </tr>
+        <!-- Sample row 3 -->
+        <tr>
+            <td>Data3.1</td>
+            <td>Data3.2</td>
+            <td>Data3.3</td>
+            <td>Data3.4</td>
+            <td>Data3.5</td>
+        </tr>
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No data loaded. Click the button to load data.</p>
+}
+
+@code {
+    private bool dataLoaded = false;
+
+    private void LoadData()
+    {
+    // Simulate data load
+        dataLoaded = true;
+    }
+}

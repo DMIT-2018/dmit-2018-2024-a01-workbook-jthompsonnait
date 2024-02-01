@@ -40,25 +40,25 @@
     <div class="onethird">
         <!-- Heading for this section -->
         <h3>TextBoxes</h3>
-        <!-- Label and input for entering an email -->
-        <label>
+        <!-- p and input for entering an email -->
+        <p>
             Enter an Email
             <input type="email" @bind="emailText"
                    placeholder="enter email" />
-        </label>
+        </p>
         <br />
-        <!-- Label and input for entering a password -->
-        <label>
+        <!-- p and input for entering a password -->
+        <p>
             Enter a Password
             <input type="password" @bind="passwordText"
                    placeholder="enter password" />
-        </label>
+        </p>
         <br />
-        <!-- Label and input for entering a date -->
-        <label>
+        <!-- p and input for entering a date -->
+        <p>
             Enter a Date
             <input type="date" @bind="dateText" />
-        </label>
+        </p>
         <br />
         <!-- Button to trigger the TextSubmit method -->
         <button class="btn-success" @onclick="TextSubmit">
@@ -71,9 +71,9 @@
         <h3>Radiobuttons CheckBox TextArea</h3>
         <br />
         <!-- Radio Buttons using Collections -->
-        <label>
+        <p>
             Select your favorite meal using a foreach loop<br />
-        </label>
+        </p>
         <br />
         @foreach (var item in @meals)
         {
@@ -84,13 +84,13 @@
         <br />
 
 
-        <!-- Label for the checkbox indicating agreement to terms -->
-        <label>
+        <!-- p for the checkbox indicating agreement to terms -->
+        <p>
             <!-- Checkbox input bound to the acceptanceBox variable -->
             <input type="checkbox" @bind="acceptanceBox" />
-            <!-- Label text indicating the agreement -->
+            <!-- p text indicating the agreement -->
             &nbsp; I agree to terms
-        </label>
+        </p>
 
         <br />
         <br />
@@ -108,8 +108,8 @@
 
     <div class=onethird>
         <h3>List and Slider</h3>
-        <label>
-            <!-- Display a label for the dropdown, instructing the user to select their favorite ride. -->
+        <p>
+            <!-- Display a p for the dropdown, instructing the user to select their favorite ride. -->
             Select your favorite Ride
 
             <!-- Create a dropdown select element that binds to the 'myRide' property. -->
@@ -128,11 +128,11 @@
                     </option>
                 }
             </select>
-        </label>
+        </p>
         <br />
         <br />
-        <label>
-            <!-- Display a label for the dropdown, instructing the user to select their favorite vacation spot. -->
+        <p>
+            <!-- Display a p for the dropdown, instructing the user to select their favorite vacation spot. -->
             Select your favorite Vacation Spot
     
             <!-- Create a dropdown select element and bind its value to the 'vacationSpot' property. -->
@@ -151,20 +151,20 @@
                     </option>
                 }
             </select>
-        </label>
+        </p>
         <br />
-        <label>
-            <!-- Display a label instructing the user to rate the form control review on a scale from bad to good. -->
+        <p>
+            <!-- Display a p instructing the user to rate the form control review on a scale from bad to good. -->
             Rate the form control review (bad to good)
 
             <!-- Create an input element of type 'range' for rating, binding its value to the 'ReviewRating' property. -->
             <input type="range" min="0" max="10" step="1" @bind="reviewRating" />
-        </label>
+        </p>
 
         <br />
         <!-- Create a button element with a CSS class 'btn-success' and an 'onclick' event handler. -->
         <button class="btn-success" @onclick="ListSliderSubmit">
-            <!-- Display the button label "List & Slider." -->
+            <!-- Display the button p "List & Slider." -->
             List & Slider
         </button>
     </div>

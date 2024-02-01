@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using HogWIldSystem.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace HogWIldSystem.DAL;
+namespace HogWildSystem.DAL;
 
 internal partial class HogWildContext : DbContext
 {
