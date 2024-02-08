@@ -15,7 +15,7 @@
 
 void Main()
 {
-	GetCustomers("", "7809753079").Dump();
+	GetCustomers("Fo", "7809753079").Dump();
 }
 
 public List<CustomerSearchView> GetCustomers(string lastName, string phone)

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace HogWildWebApp.Components.Pages.SamplePages
 {
-    public partial class CustomerList
+    public partial class TelerikCustomerList
     {
         #region Fields
 
@@ -28,6 +28,8 @@ namespace HogWildWebApp.Components.Pages.SamplePages
 
         // error details
         private List<string> errorDetails = new();
+
+        private bool loaderVisible { get; set; } = false;
         #endregion
 
         #region Properties
@@ -46,10 +48,14 @@ namespace HogWildWebApp.Components.Pages.SamplePages
         #region Methods
 
         //  search for an existing customer
-        private void Search()
+        private async Task Search()
         {
             try
             {
+                loaderVisible = true;
+                //  added a delay to give the component a chance to load.
+                await Task.Delay(1000);
+                
                 //  reset the error detail list
                 errorDetails.Clear();
 
@@ -67,15 +73,10 @@ namespace HogWildWebApp.Components.Pages.SamplePages
                     throw new ArgumentException("Please provide either a last name and/or phone number");
                 }
 
+                //  search for our customers
                 Customers = CustomerService.GetCustomers(lastName, phoneNumber);
-                if (Customers.Count > 0)
-                {
-                    feedbackMessage = "Search for customer(s) was successful";
-                }
-                else
-                {
-                    feedbackMessage = "No customer were found for your search criteria";
-                }
+                await InvokeAsync(StateHasChanged);
+                loaderVisible = false;
             }
             catch (ArgumentNullException ex)
             {
@@ -108,13 +109,13 @@ namespace HogWildWebApp.Components.Pages.SamplePages
         }
 
         //  edit selected customer
-        private void EditCustomer(int customerID)
+        private void EditCustomer()
         {
 
         }
 
         //  new invoice for selected customer
-        private void NewInvoice(int customerID)
+        private void NewInvoice()
         {
 
         }
