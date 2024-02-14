@@ -17,8 +17,8 @@
                    Style="Width: 140px; background-color: lightgray"
                    @bind-Value="phoneNumber" />
     </p>
-    <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="Search">Search</MudButton>
-    <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="New">New</MudButton>
+    <button class="btn-success" @onclick="Search">Search</button>
+    <button class="btn-success" @onclick="New">New</button>
 </header>
 <body>
     @if (PaginatorCustomerSearch.RowCount == 0)
