@@ -2,6 +2,6 @@
     display: flex;
 }
 
-column {
+.column {
     flex: 50%;
 }
