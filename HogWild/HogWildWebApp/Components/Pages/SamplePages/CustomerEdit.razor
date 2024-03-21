@@ -30,6 +30,7 @@
                 <InputText id="firstName"
                            Style="Width: 140px; background-color: lightgray"
                            @bind-Value="customer.FirstName" />
+                <ValidationMessage For="() => customer.FirstName" />
             </p>
             <p>
                 <!-- Last Name -->
@@ -37,6 +38,7 @@
                 <InputText id="lastName"
                            Style="Width: 140px; background-color: lightgray"
                            @bind-Value="customer.LastName" />
+                <ValidationMessage For="() => customer.LastName" />
             </p>
             <p>
                 <!-- Address 1 -->
@@ -88,11 +90,13 @@
             <p>
                 <label>Phone:</label>
                 <InputText id="phone" style="width: 140px; background-color: lightgray" @bind-Value="customer.Phone" />
-            </p>
+                <ValidationMessage For="() => customer.Phone" />
+                </p>
             <p>
                 <label>Email:</label>
                 <InputText id="email" style="width: 300px; background-color: lightgray" @bind-Value="customer.Email" />
-            </p>
+            
+                <ValidationMessage For="() => customer.Email" /></p>
             <p>
                 <label>Customer Status:</label>
                 <InputSelect @bind-Value="customer.StatusID" style="width: 140px; background-color: lightgray">
@@ -108,7 +112,7 @@
     </div>
 </EditForm>
 
-<button class="btn-success" @onclick="Save">Save</button>
+<button class="btn-success" disabled="@disableSaveButton" @onclick="Save">Save</button>
 <button class="btn-success" @onclick="Cancel">@closeButtonText</button>
 
 </body>
