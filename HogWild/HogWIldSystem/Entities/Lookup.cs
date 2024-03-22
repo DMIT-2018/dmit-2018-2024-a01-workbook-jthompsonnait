@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace HogWIldSystem.Entities;
+namespace HogWildSystem.Entities;
 
 [Table("Lookup")]
 internal partial class Lookup

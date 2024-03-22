@@ -1,6 +1,6 @@
 <Query Kind="Program">
   <Connection>
-    <ID>7feab626-14df-4634-b90d-faf30c4fafbb</ID>
+    <ID>13a5cc53-3a41-4937-abe4-29a2cd8c92e8</ID>
     <NamingServiceVersion>2</NamingServiceVersion>
     <Persist>true</Persist>
     <Server>.</Server>
@@ -17,6 +17,9 @@ void Main()
 {
 	GetCustomers("Fo", "7809753079").Dump();
 }
+
+
+
 
 public List<CustomerSearchView> GetCustomers(string lastName, string phone)
 {

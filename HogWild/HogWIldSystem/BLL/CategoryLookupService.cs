@@ -1,12 +1,12 @@
 ﻿using HogWildSystem.DAL;
-using HogWIldSystem.ViewModels;
+using HogWildSystem.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HogWIldSystem.BLL
+namespace HogWildSystem.BLL
 {
     public class CategoryLookupService
     {

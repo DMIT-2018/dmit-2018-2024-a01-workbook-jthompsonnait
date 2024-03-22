@@ -1,4 +1,4 @@
-using HogWIldSystem;
+using HogWildSystem;
 using HogWildWebApp.Components;
 using HogWildWebApp.Components.Account;
 using HogWildWebApp.Data;
@@ -61,8 +61,6 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
     .AddDefaultTokenProviders();
 
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
-builder.Services.AddTelerikBlazor();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

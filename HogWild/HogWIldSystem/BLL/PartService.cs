@@ -1,16 +1,32 @@
-﻿using HogWIldSystem.Entities;
-using HogWIldSystem.ViewModels;
+﻿using HogWildSystem.DAL;
+using HogWildSystem.Entities;
+using HogWildSystem.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HogWIldSystem.BLL
+namespace HogWildSystem.BLL
 {
-    internal class PartService
+    public class PartService
     {
 
+        #region Fields
+
+        /// <summary>
+        /// The hog wild context
+        /// </summary>
+        private readonly HogWildContext _hogWildContext;
+
+        #endregion
+
+        // Constructor for the PartService class.
+        internal PartService(HogWildContext hogWildContext)
+        {
+            // Initialize the _hogWildContext field with the provided HogWildContext instance.
+            _hogWildContext = hogWildContext;
+        }
 
         //	Get all parts
         public List<PartView> GetParts(int partCategoryID, string description, List<int> existingPartIDs)
@@ -36,7 +52,7 @@ namespace HogWIldSystem.BLL
             }
 
             //	ignore any parts that are in the "existing part ID" list
-            return Parts.Where(x => !existingPartIDs.Contains(x.PartID) &&
+            return _hogWildContext.Parts.Where(x => !existingPartIDs.Contains(x.PartID) &&
             (description.Length > 0 && description != tempGuild.ToString() && partCategoryID > 0
                                     ? (x.Description.Contains(description) && x.PartCategoryID == partCategoryID)
                                     : (x.Description.Contains(description) || x.PartCategoryID == partCategoryID)
@@ -71,14 +87,14 @@ namespace HogWIldSystem.BLL
                 throw new ArgumentNullException("Please provide a part");
             }
 
-            return Parts
+            return _hogWildContext.Parts
                 .Where(x => (x.PartID == partID
                              && !x.RemoveFromViewFlag))
                 .Select(x => new PartView
                 {
                     PartID = x.PartID,
                     PartCategoryID = x.PartCategoryID,
-                    CategoryName = Lookups //  No navigational property was created in database
+                    CategoryName = _hogWildContext.Lookups //  No navigational property was created in database
                                     .Where(l => l.LookupID == x.PartCategoryID)
                                     .Select(l => l.Name).FirstOrDefault(),
                     Description = x.Description,

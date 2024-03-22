@@ -1,10 +1,10 @@
 ﻿#nullable disable
 using HogWildSystem.DAL;
+using HogWildSystem.Entities;
 using HogWildSystem.Paginator;
-using HogWIldSystem.Entities;
-using HogWIldSystem.ViewModels;
+using HogWildSystem.ViewModels;
 
-namespace HogWIldSystem.BLL
+namespace HogWildSystem.BLL
 {
     public class CustomerService
     {

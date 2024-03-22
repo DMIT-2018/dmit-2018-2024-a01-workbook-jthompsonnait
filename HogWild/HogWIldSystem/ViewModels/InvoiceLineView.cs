@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HogWIldSystem.ViewModels
+namespace HogWildSystem.ViewModels
 {
     public class InvoiceLineView
     {

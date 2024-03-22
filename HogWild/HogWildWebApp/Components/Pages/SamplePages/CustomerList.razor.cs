@@ -1,6 +1,6 @@
 ﻿using HogWildSystem.Paginator;
-using HogWIldSystem.BLL;
-using HogWIldSystem.ViewModels;
+using HogWildSystem.BLL;
+using HogWildSystem.ViewModels;
 using Microsoft.AspNetCore.Components;
 
 namespace HogWildWebApp.Components.Pages.SamplePages
