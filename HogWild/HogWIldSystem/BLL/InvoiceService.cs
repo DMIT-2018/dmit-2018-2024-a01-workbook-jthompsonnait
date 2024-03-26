@@ -61,6 +61,20 @@ namespace HogWildSystem.BLL
         // Get invoice
         public InvoiceView GetInvoice(int invoiceID, int customerID, int employeeID)
         {
+            // Business Rules
+            // These are processing rules that need to be satisfied
+            // for valid data
+
+            // Rule: both the customerID and empplyeeID must be provided
+            if (customerID == 0)
+            {
+                throw new ArgumentNullException("No customer was provided!");
+            }
+
+            if (employeeID == 0)
+            {
+                throw new ArgumentNullException("No employee was provided!");
+            }
             //	Handles both new and existing invoice
             //  For a new invoice the following information is needed
             //		Customer & Employee ID
@@ -146,6 +160,8 @@ namespace HogWildSystem.BLL
                     errorList.Add(new Exception($"Invoice line {invoiceLine.Description} has a value less than 1"));
                 }
             }
+            //  pre error check to exit if have any known error.  Exits before do intensive operations.
+            //  post error check exists before SaveChanges
             if (errorList.Any())
             {
                 //  we need to clear the "track changes" otherwise we leave
