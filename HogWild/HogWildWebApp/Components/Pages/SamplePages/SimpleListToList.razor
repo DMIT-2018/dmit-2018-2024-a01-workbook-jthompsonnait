@@ -2,7 +2,7 @@
 @using HogWildWebApp.Components.Layout
 
 @* Navigation link for Simple List to List
-    
+
 <NavLink class="nav-link" href="/SamplePages/SimpleListToList">
     <span>Simple List To List</span>
 </NavLink>
@@ -24,7 +24,9 @@
             <RowTemplate>
                 <td>
                     <button class="btn-success"
-                    @onclick="() => AddPartToCart(PartView.PartID)">Add</button>
+                            @onclick="() => AddPartToCart(PartView.PartID)">
+                        Add
+                    </button>
                 </td>
                 <td>@PartView.PartID</td>
                 <td>@PartView.Description</td>
@@ -46,9 +48,11 @@
                 <th>Extended Price</th>
             </TableHeader>
             <RowTemplate>
-                                    <td>
-                    <button class="btn-danger" @onclick="(() => 
-                            RemovePartFromCart(InvoiceLineView.PartID))">Remove</button>
+                <td>
+                    <button class="btn-danger" @onclick="(() =>
+                            RemovePartFromCart(InvoiceLineView.PartID))">
+                        Remove
+                    </button>
                 </td>
                 <td>@InvoiceLineView.InvoiceLineID</td>
                 <td>@InvoiceLineView.Description</td>
