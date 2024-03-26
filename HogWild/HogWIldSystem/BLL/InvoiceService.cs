@@ -1,4 +1,5 @@
-﻿using HogWildSystem.DAL;
+﻿#nullable disable
+using HogWildSystem.DAL;
 using HogWildSystem.Entities;
 using HogWildSystem.ViewModels;
 using System;
@@ -228,10 +229,13 @@ namespace HogWildSystem.BLL
                     {
                         string missingInvoiceLine = $"Invoice line for {invoiceLineView.Description} ";
                         missingInvoiceLine = missingInvoiceLine + "cannot be found in the existing invoice lines";
-                        throw new ArgumentNullException(missingInvoiceLine);
+                        errorList.Add(new Exception(missingInvoiceLine));
                     }
-                    invoiceLine.Quantity = invoiceLineView.Quantity;
-                    invoiceLine.RemoveFromViewFlag = invoiceLineView.RemoveFromViewFlag;
+                    else
+                    {
+                        invoiceLine.Quantity = invoiceLineView.Quantity;
+                        invoiceLine.RemoveFromViewFlag = invoiceLineView.RemoveFromViewFlag;
+                    }
                 }
                 else
                 {
@@ -358,6 +362,12 @@ namespace HogWildSystem.BLL
             }
             #endregion
 
+            //  new employee
+            if (invoice.InvoiceID == 0)
+                _hogWildContext.Invoices.Add(invoice);
+            else
+                _hogWildContext.Invoices.Update(invoice);
+
             #region Final Error Check and Save Operation
             if (errorList.Count > 0)
             {
@@ -369,11 +379,6 @@ namespace HogWildSystem.BLL
             }
             else
             {
-                //  new employee
-                if (invoice.InvoiceID == 0)
-                    _hogWildContext.Invoices.Add(invoice);
-                else
-                    _hogWildContext.Invoices.Update(invoice);
                 _hogWildContext.SaveChanges();
             }
             #endregion
