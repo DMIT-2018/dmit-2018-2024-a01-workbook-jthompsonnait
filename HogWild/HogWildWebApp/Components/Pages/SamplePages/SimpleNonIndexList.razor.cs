@@ -21,7 +21,7 @@ namespace HogWildWebApp.Components.Pages.SamplePages
 
         private async Task AddCustomerToListBad()
         {
-           Customers.Add(new CustomerEditView()
+            Customers.Add(new CustomerEditView()
             {
                 CustomerID = Customers.Count() + 1,
                 FirstName = customerName
